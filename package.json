@@ -1,0 +1,21 @@
+{
+  "name": "btd-rest-api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "start": "json-server data.js -m ./node_modules/json-server-auth -p 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epam.com:epm-lstr/epm-lstr-fei/btd-rest-api-server.git"
+  },
+  "author": "fedor abrashin <fedor_abrashin@epam.com>",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "faker": "^5.5.3",
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0"
+  }
+}
