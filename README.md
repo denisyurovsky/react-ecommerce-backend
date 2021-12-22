@@ -4,25 +4,45 @@ In order to start JSON server:
 ```
 npm run start
 ```
+<br>  
+  
+---
+## User entity:
+```
+{
+    id: number,
+    email: string,
+    password: string,
+    userRole: string,
+}
+```
 
-<br>
+## List of user roles:
+```
+- admin
+- seller
+- consumer
+- guest
+```
 
 ## Products structure:
 ```
 {
-  id: number;
-  name: string;
-  price: number; //format (regExp: /\d{2,3}\.00/) (example:670.00)
-  description: string;
+  id: number,
+  userId: number,
+  name: string,
+  price: number, //format (regExp: /\d{2,3}\.00/) (example:670.00)
+  description: string,
   category: {
-   id: string;
-   name: string;
-  };
+   id: string,
+   name: string,
+  },
   author: {
-    id: string;
-    firstName: string;
-    lastName: string;
-  };
+    id: number,
+    email: string,
+    password: string,
+    userRole: string,
+  },
   images: array; //array of URLs
   createdAt: string; //format ISO string
   updatedAt: string; //format ISO string
@@ -138,8 +158,27 @@ POST /register
 
 > ### In order to change amount of posts or categories you can adjust constants in `data.js`
 
+<br>  
+  
+  <br>
+    
+---  
+## Protected routes list:  
+```
+/comments  
+/products
+/users  
+```
 <br>
 
+> ### Protection rule:  
+> ### Anyone can view, only owner can make CRUD operations.
+  
+<br>
+    
+--- 
+<br>
+    
 ## [PATCH] products/\<ID>/upload 
 
 ### Request
