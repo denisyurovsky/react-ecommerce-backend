@@ -10,7 +10,7 @@ npm run start
 ## Products structure:
 ```
 {
-  id: string;
+  id: number;
   name: string;
   price: number; //format (regExp: /\d{2,3}\.00/) (example:670.00)
   description: string;
@@ -23,6 +23,7 @@ npm run start
     firstName: string;
     lastName: string;
   };
+  images: array; //array of URLs
   createdAt: string; //format ISO string
   updatedAt: string; //format ISO string
 }
@@ -78,7 +79,7 @@ npm run start
     </tr>
       <td rowspan=5>PUT, <br> PATCH</td>
       <td>/register</td>
-      <td rowspan=3>Update info about an excisting user<br> <em>email and password are <b>required<b><em></td>
+      <td rowspan=3>Update info about an existing user<br> <em>email and password are <b>required<b><em></td>
     </tr>
     <tr>
       <td>/signup</td>
@@ -97,7 +98,7 @@ npm run start
 
 <br>
 
-## Expample of POST request:
+## Example of POST request:
 
 <br>
 
@@ -136,3 +137,59 @@ POST /register
 <br>
 
 > ### In order to change amount of posts or categories you can adjust constants in `data.js`
+
+<br>
+
+## [PATCH] products/\<ID>/upload 
+
+### Request
+
+__Content-Type__: application/json
+
+__Type__: object
+
+__Properties__
+
+* images: Array of \<Base64String>
+
+### Example:
+
+```
+{
+  "images": ["data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", 
+  "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="]
+}
+```
+
+### Response
+
+__Content-Type__: application/json
+
+__Type__: object
+
+
+### Example:
+
+```
+{
+  "id": 0,
+  "name": "Intelligent Cotton Pants",
+  "price": "670.00",
+  "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+  "category": {
+    "id": "e8d65a83-7e30-48ae-a786-2f3ccbfc51b8",
+    "name": "Industrial"
+  },
+  "author": {
+    "id": "eded1d04-20ea-4196-af68-3b452acd600c",
+    "firstName": "Lindsay",
+    "lastName": "Yundt"
+  },
+  "images": [
+    "http://localhost:5000/photo_1.gif",
+    "http://localhost:5000/photo_2.gif"
+  ],
+  "createdAt": "2021-11-23T21:43:58.126Z",
+  "updatedAt": "2021-12-07T06:31:17.109Z"
+}
+```
