@@ -87,7 +87,7 @@ for (let i = 0; i < constants.NUMBER_OF_PRODUCTS; i++) {
     id: i,
     userId: users[randomArrayIndex(4)].id,
     name: faker.commerce.productName(),
-    price: faker.commerce.price(),
+    price: Number(faker.commerce.price()),
     description: faker.commerce.productDescription(),
     category: {
       id: faker.datatype.uuid(),
