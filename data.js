@@ -28,42 +28,56 @@ const USER_ROLE = {
   GUEST: 'guest',
 };
 
+faker.seed(1);
+
 const users = [
   {
     id: 1,
     email: "admin@born2die.com",
     password: "$2a$10$P2R8y6j/oFchTHiitujMl.7nA.laPVUHOVULLf/byZ6CvObHuIYxu",
-    userRole: USER_ROLE.ADMIN,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.ADMIN,
   },
   {
     id: 2,
-    email: "smirnova@gmail.com",
+    email: "seller1@gmail.com",
     password: "$2a$10$TlKHdnxu1pFzlEaM.JP4OOw.kIDTFQ/EjIBOyDbR.rkUrLhaUl..q",
-    userRole: USER_ROLE.SELLER,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.SELLER,
   },
   {
     id: 3,
-    email: "ivanov@gmail.com",
+    email: "seller2@gmail.com",
     password: "$2a$10$W3PFvZHfrw8No6UoL0Fzb.diBJb1WmYZg4culF5pYO1ba7Sm/egDe",
-    userRole: USER_ROLE.SELLER,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.SELLER,
   },
   {
     id: 4,
-    email: "petrov@gmail.com",
+    email: "seller3@gmail.com",
     password: "$2a$10$eKIBw.ZuION4wAl5qhqEpOh.toNEOb6wgGqYaa3Qvrpj7qpv6sHCy",
-    userRole: USER_ROLE.SELLER,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.SELLER,
   },
   {
     id: 5,
-    email: "fedorov@gmail.com",
+    email: "consumer1@gmail.com",
     password: "$2a$10$ckfg.zH5LAH5kem5pDfryufvtPwKwhgf7B.FvKo8mpORpKwJyOUMy",
-    userRole: USER_ROLE.CONSUMER,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.CONSUMER,
   },
   {
     id: 6,
-    email: "sidorova@gmail.com",
+    email: "consumer2@gmail.com",
     password: "$2a$10$wHl53GUuzpG/I2QeHjtcA.OtVouHC18cENehCcEiLPUZNbOG4uSuq",
-    userRole: USER_ROLE.CONSUMER,
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    role: USER_ROLE.CONSUMER,
   }
 ];
 
@@ -97,8 +111,6 @@ for (let i = 0; i < constants.NUMBER_OF_PRODUCTS; i++) {
     createdAt,
     updatedAt
   });
-  const lastProduct = products[products.length - 1];
-  lastProduct.author = users[lastProduct.userId - 1];
 }
 
 module.exports = {
