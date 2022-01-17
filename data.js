@@ -107,6 +107,7 @@ for (let i = 0; i < constants.NUMBER_OF_PRODUCTS; i++) {
       id: faker.datatype.uuid(),
       name: categories[randomArrayIndex(constants.NUMBER_OF_CATEGORIES)]
     },
+    rating: null,
     images: TEST_IMAGE_URLS[i] ? TEST_IMAGE_URLS[i] : [],
     createdAt,
     updatedAt
@@ -117,4 +118,5 @@ module.exports = {
   products,
   users,
   categories,
+  feedbacks: [],
 };

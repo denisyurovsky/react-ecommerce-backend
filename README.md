@@ -4,8 +4,8 @@ In order to start JSON server:
 ```
 npm run start
 ```
-<br>  
-  
+<br>
+
 ---
 ## User entity:
 ```
@@ -37,15 +37,10 @@ npm run start
    id: string,
    name: string,
   },
-  author: {
-    id: number,
-    email: string,
-    password: string,
-    userRole: string,
-  },
-  images: array; //array of URLs
-  createdAt: string; //format ISO string
-  updatedAt: string; //format ISO string
+  rating: number,
+  images: array, //array of URLs
+  createdAt: string, //format ISO string
+  updatedAt: string, //format ISO string
 }
 ```
 
@@ -158,28 +153,29 @@ POST /register
 
 > ### In order to change amount of posts or categories you can adjust constants in `data.js`
 
-<br>  
-  
+<br>
+
   <br>
-    
----  
-## Protected routes list:  
+
+---
+## Protected routes list:
 ```
-/comments  
+/comments
 /products
-/users  
+/users
+/feedbacks
 ```
 <br>
 
-> ### Protection rule:  
+> ### Protection rule:
 > ### Anyone can view, only owner can make CRUD operations.
-  
+
 <br>
-    
---- 
+
+---
 <br>
-    
-## [PATCH] products/\<ID>/upload 
+
+## [PATCH] products/\<ID>/upload
 
 ### Request
 
@@ -195,7 +191,7 @@ __Properties__
 
 ```
 {
-  "images": ["data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", 
+  "images": ["data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
   "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="]
 }
 ```
@@ -212,17 +208,13 @@ __Type__: object
 ```
 {
   "id": 0,
+  "userId": 5,
   "name": "Intelligent Cotton Pants",
   "price": "670.00",
   "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
   "category": {
     "id": "e8d65a83-7e30-48ae-a786-2f3ccbfc51b8",
     "name": "Industrial"
-  },
-  "author": {
-    "id": "eded1d04-20ea-4196-af68-3b452acd600c",
-    "firstName": "Lindsay",
-    "lastName": "Yundt"
   },
   "images": [
     "http://localhost:5000/photo_1.gif",

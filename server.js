@@ -1,6 +1,7 @@
-const uploadImages = require('./helper/uploadImages');
 const data = require('./data');
-const constants = require('./constants.js');
+const rating = require('./routes/rating');
+const products = require('./routes/products');
+const constants = require('./constants');
 
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
@@ -14,6 +15,8 @@ const rules = auth.rewriter({
   "/comments*": "/644/comments$1",
   "/products*": "/644/products$1",
   "/users*": "/644/users$1",
+  "/feedbacks*": "/644/feedbacks$1",
+  "/rating*": "/664/rating$1"
 });
 
 server.use(
@@ -24,17 +27,14 @@ server.use(
   })
 );
 
-server.patch('/products/:id', (req, res, next) => {
-  const id = Number(req.url.split('/')[2]);
-  const product = data.products.find(product => product.id === id);
-  const base64Col = req.body.images;
-  const uploadedImageUrls = uploadImages(base64Col, constants.PATHNAME);
-  req.body.images = [...product.images, ...uploadedImageUrls];
-  next();
-});
+server.patch('/products/:id', products);
+
 
 server.use(rules);
 server.use(auth);
+
+server.patch('/rating', rating);
+
 server.use(router);
 
 server.listen(constants.PORT_URL, () => {
