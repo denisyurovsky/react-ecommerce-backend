@@ -1,4 +1,4 @@
-const data = require('../data');
+const data = require('../data/data');
 const isCartValid = require('../validators/checkCartValidity');
 
 module.exports = (req, res) => {
@@ -7,10 +7,10 @@ module.exports = (req, res) => {
   let user;
 
   try {
-    if(!isCartValid(cart)) {
+    if (!isCartValid(cart)) {
       return res.status(400).json(`Wrong cart  format`);
     }
-    
+
     user = data.users.find(user => user.id == userId);
 
     if (!user) {

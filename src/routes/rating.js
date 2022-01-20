@@ -1,4 +1,4 @@
-const data = require('../data');
+const data = require('../data/data');
 
 module.exports = (req, res) => {
   const { productId, rating } = req.body;

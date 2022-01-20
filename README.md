@@ -14,6 +14,10 @@ npm run start
     email: string,
     password: string,
     role: string,
+    gender: string;
+    dateOfBirth: string, //format ISO string;
+    phoneNumber: string;
+    avatar: string;
     wishlist: array, // array of numbers for consumer and administrator roles only
 }
 ```
@@ -44,6 +48,18 @@ npm run start
   updatedAt: string, //format ISO string
 }
 ```
+## Feedbacks structure:
+```
+{
+  id: number,
+  userId: number,
+  productId: number,
+  rating: number,
+  comment: string,
+  displayedName: string,
+  createdAt: string, //format ISO string
+}
+```
 
 <br>
 
@@ -59,7 +75,7 @@ npm run start
   </thead>
   <tbody>
     <tr>
-      <td rowspan=4>GET</td>
+      <td rowspan=6>GET</td>
       <td><b>/products</b></td>
       <td>Fetch all products</td>
     </tr>
@@ -74,6 +90,14 @@ npm run start
     <tr>
       <td><b>/categories</b></td>
       <td>Fetch all categories</td>
+    </tr>
+    <tr>
+      <td><b>/feedbacks</b></td>
+      <td>Fetch all feedbacks</td>
+    </tr>
+    <tr>
+      <td>/user/feedbacks</td>
+      <td>Fetch all feedbacks with productName</td>
     </tr>
     <tr>
       <td rowspan=5>POST</td>
