@@ -20,6 +20,10 @@ const rules = auth.rewriter({
   '/feedbacks*': '/644/feedbacks$1',
   '/rating*': '/664/rating$1',
   '/cart*': '/644/cart$1',
+  '/categories*': '/644/categories$1',
+  '/cities*': '/444/cities$1',
+  '/countries*': '/444/countries$1',
+  '/addresses*': '/660/addresses$1',
 });
 
 server.use(

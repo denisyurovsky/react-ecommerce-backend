@@ -4,6 +4,9 @@ const { users } = require('./users');
 const { categories } = require('./categories');
 const { products } = require('./products');
 const { feedbacks } = require('./feedbacks');
+const { addresses } = require('./addresses');
+const countries = require('./countries.json');
+const cities = require('./cities.json');
 
 products.forEach((product, i) => {
   const productFeedbacks = _.filter(feedbacks, ['productId', i]);
@@ -19,4 +22,7 @@ module.exports = {
   categories,
   products,
   feedbacks,
+  addresses,
+  countries,
+  cities,
 };
