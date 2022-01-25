@@ -1,6 +1,7 @@
 const data = require('./data');
 const rating = require('./routes/rating');
 const products = require('./routes/products');
+const cart = require('./routes/cart');
 const constants = require('./constants');
 
 const jsonServer = require('json-server');
@@ -16,23 +17,24 @@ const rules = auth.rewriter({
   "/products*": "/644/products$1",
   "/users*": "/644/users$1",
   "/feedbacks*": "/644/feedbacks$1",
-  "/rating*": "/664/rating$1"
+  "/rating*": "/664/rating$1",
+  "/cart*": "/644/cart$1",
 });
 
 server.use(
   middlewares,
   jsonServer.bodyParser,
   jsonServer.rewriter({
-    '/products/:id/update': '/products/:id'
+    '/products/:id/update': '/products/:id',
   })
 );
 
 server.patch('/products/:id', products);
 
-
 server.use(rules);
 server.use(auth);
 
+server.put('/cart/:userId', cart);
 server.patch('/rating', rating);
 
 server.use(router);
