@@ -33,7 +33,7 @@ const rules = auth.rewriter({
   '/addresses*': '/660/addresses$1',
   '/confirm-order*': '/600/confirm-order$1',
   '/cancel-order*': '/600/cancel-order$1',
-  '/orders*': '/600/orders$1',
+  // '/orders*': '/666/orders$1',
 });
 
 const services = [addDatesToRequest, addUserId];

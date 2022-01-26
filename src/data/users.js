@@ -9,7 +9,7 @@ const users = [
     email: 'admin@born2die.com',
     password: '$2a$10$P2R8y6j/oFchTHiitujMl.7nA.laPVUHOVULLf/byZ6CvObHuIYxu',
     role: USER_ROLE.ADMIN,
-    addresses: [0, 2],
+    addresses: [1, 3],
   },
   {
     email: 'seller1@gmail.com',

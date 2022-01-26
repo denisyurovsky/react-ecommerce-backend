@@ -2,7 +2,7 @@ const faker = require('faker');
 
 const addresses = [
   {
-    id: 0,
+    id: 1,
     title: 'Mr.',
     name: 'Alexander',
     surname: 'Sidorov',
@@ -18,7 +18,7 @@ const addresses = [
     zip: '168142',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Mr.',
     name: 'Ivan',
     surname: 'Ivanov',
@@ -34,7 +34,7 @@ const addresses = [
     zip: '168142',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Mrs.',
     name: 'Alexandra',
     surname: 'Sidorova',
