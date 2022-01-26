@@ -13,7 +13,8 @@ npm run start
     id: number,
     email: string,
     password: string,
-    userRole: string,
+    role: string,
+    wishlist: array, // array of numbers for consumer and administrator roles only
 }
 ```
 

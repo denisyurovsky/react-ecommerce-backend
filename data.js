@@ -38,6 +38,7 @@ const users = [
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     role: USER_ROLE.ADMIN,
+    wishlist: [],
   },
   {
     id: 2,
@@ -70,6 +71,7 @@ const users = [
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     role: USER_ROLE.CONSUMER,
+    wishlist: [],
   },
   {
     id: 6,
@@ -78,6 +80,7 @@ const users = [
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     role: USER_ROLE.CONSUMER,
+    wishlist: [],
   }
 ];
 
