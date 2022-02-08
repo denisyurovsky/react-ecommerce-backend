@@ -4,6 +4,7 @@ const products = require('./routes/products');
 const cart = require('./routes/cart');
 const users = require('./routes/users');
 const rating = require('./routes/rating');
+const render = require('./middlewares/response');
 
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
@@ -12,6 +13,7 @@ const server = jsonServer.create();
 const router = jsonServer.router(data);
 const middlewares = jsonServer.defaults();
 
+router.render = render;
 server.db = router.db;
 
 const rules = auth.rewriter({
