@@ -5,6 +5,7 @@ const { categories } = require('./categories');
 const cities = require('./cities.json');
 const countries = require('./countries.json');
 const { feedbacks } = require('./feedbacks');
+const { orders } = require('./orders');
 const { products } = require('./products');
 const { users } = require('./users');
 
@@ -27,4 +28,5 @@ module.exports = {
   addresses,
   countries,
   cities,
+  orders,
 };

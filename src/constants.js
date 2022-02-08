@@ -37,6 +37,13 @@ const TEST_IMAGE_URLS = {
   4: ['http://localhost:5000/products/images/photo_test_51.webp'],
 };
 
+const orderStatus = {
+  WAITING_FOR_PAYMENT: 1,
+  PAID: 2,
+  DELIVERED: 3,
+  CANCELLED: 4,
+};
+
 module.exports = {
   PORT,
   ORIGIN_URL,
@@ -45,4 +52,5 @@ module.exports = {
   NUMBER_OF_FEEDBACKS,
   USER_ROLE,
   TEST_IMAGE_URLS,
+  orderStatus,
 };
