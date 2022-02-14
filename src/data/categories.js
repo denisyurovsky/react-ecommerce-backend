@@ -1,9 +1,9 @@
-const faker = require('faker');
+const faker = require("faker");
 
-const { NUMBER_OF_CATEGORIES } = require('../constants.js');
+const {NUMBER_OF_CATEGORIES} = require("../constants.js");
 
 faker.seed(1);
-const categories = [];
+let categories = [];
 
 while (categories.length < NUMBER_OF_CATEGORIES) {
     const newCategory = faker.commerce.department();
@@ -13,4 +13,6 @@ while (categories.length < NUMBER_OF_CATEGORIES) {
     }
 }
 
-module.exports = { categories };
+categories = categories.map((name, id) => ({id, name}));
+
+module.exports = {categories};

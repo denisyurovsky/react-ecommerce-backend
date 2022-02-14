@@ -27,10 +27,7 @@ for (let i = 0; i < NUMBER_OF_PRODUCTS; i++) {
     price: price,
     discountPrice: discountPrice < price ? discountPrice : null,
     description: faker.commerce.productDescription(),
-    category: {
-      id: faker.datatype.uuid(),
-      name: faker.random.arrayElement(categories),
-    },
+    category: faker.random.arrayElement(categories),
     rating: null,
     images: TEST_IMAGE_URLS[i] ? TEST_IMAGE_URLS[i] : [],
     createdAt,
