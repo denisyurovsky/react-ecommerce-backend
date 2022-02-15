@@ -7,6 +7,7 @@ const rating = require('./routes/rating');
 
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
+const deleteCategoryWithConnectedProducts = require('./routes/deleteCategoryWithConnectedProducts');
 const server = jsonServer.create();
 const router = jsonServer.router(data);
 const middlewares = jsonServer.defaults();
@@ -20,7 +21,7 @@ const rules = auth.rewriter({
   '/feedbacks*': '/644/feedbacks$1',
   '/rating*': '/664/rating$1',
   '/cart*': '/644/cart$1',
-  '/categories*': '/644/categories$1',
+  '/categories*': '/664/categories$1',
   '/cities*': '/444/cities$1',
   '/countries*': '/444/countries$1',
   '/addresses*': '/660/addresses$1',
@@ -40,6 +41,7 @@ server.patch('/products/:id', products);
 server.patch('/users/:id', users);
 server.patch('/rating', rating);
 server.put('/cart/:userId', cart);
+server.delete('/categories/:name', deleteCategoryWithConnectedProducts)
 
 server.use(router);
 
