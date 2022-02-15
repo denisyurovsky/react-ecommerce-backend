@@ -1,13 +1,14 @@
 const faker = require('faker');
 const _ = require('lodash');
 
-const { users } = require('./users');
-const { categories } = require('./categories');
 const {
   NUMBER_OF_PRODUCTS,
   USER_ROLE,
   TEST_IMAGE_URLS,
 } = require('../constants.js');
+
+const { categories } = require('./categories');
+const { users } = require('./users');
 
 faker.seed(1);
 const products = [];
@@ -20,6 +21,7 @@ for (let i = 0; i < NUMBER_OF_PRODUCTS; i++) {
 
   const discountPrice = Number(faker.commerce.price());
   const price = Number(faker.commerce.price());
+
   products.push({
     id: i,
     userId: faker.random.arrayElement(sellers).id,

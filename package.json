@@ -1,26 +1,41 @@
 {
   "name": "btd-rest-api-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "data.js",
-  "scripts": {
-    "start": "nodemon ./src/app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@git.epam.com:epm-lstr/epm-lstr-fei/btd-rest-api-server.git"
-  },
-  "author": "fedor abrashin <fedor_abrashin@epam.com>",
-  "license": "ISC",
+  "private": true,
   "type": "commonjs",
+  "scripts": {
+    "start": "nodemon ./src/app.js",
+    "lint": "npm run eslint && npm run prettier:check",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "eslint": "eslint --ext .js,.ts src/ --color",
+    "eslint:fix": "eslint --ext .js,.ts src/ --color --fix",
+    "prettier:check": "prettier --check src/**/*.{js,json}",
+    "prettier:fix": "prettier --write src/**/*.{js,json}",
+    "precommit": "lint-staged",
+    "husky:init": "husky install && husky add .husky\\pre-commit \"npm run precommit\""
+  },
   "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
     "faker": "^5.5.3",
     "json-server": "^0.17.0",
     "json-server-auth": "^2.1.0",
+    "lint-staged": "^12.3.3",
     "lodash": "^4.17.21",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
   },
   "dependencies": {
     "jwt-decode": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

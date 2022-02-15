@@ -1,14 +1,15 @@
-const data = require('./data/data');
-const { PORT } = require('./constants');
-const products = require('./routes/products');
-const cart = require('./routes/cart');
-const users = require('./routes/users');
-const rating = require('./routes/rating');
-const render = require('./middlewares/response');
-
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
+
+const { PORT } = require('./constants');
+const data = require('./data/data');
+const render = require('./middlewares/response');
+const cart = require('./routes/cart');
 const deleteCategoryWithConnectedProducts = require('./routes/deleteCategoryWithConnectedProducts');
+const products = require('./routes/products');
+const rating = require('./routes/rating');
+const users = require('./routes/users');
+
 const server = jsonServer.create();
 const router = jsonServer.router(data);
 const middlewares = jsonServer.defaults();
@@ -36,14 +37,14 @@ server.use(
     '/products/:id/update': '/products/:id',
   }),
   rules,
-  auth,
+  auth
 );
 
 server.patch('/products/:id', products);
 server.patch('/users/:id', users);
 server.patch('/rating', rating);
 server.put('/cart/:userId', cart);
-server.delete('/categories/:name', deleteCategoryWithConnectedProducts)
+server.delete('/categories/:name', deleteCategoryWithConnectedProducts);
 
 server.use(router);
 

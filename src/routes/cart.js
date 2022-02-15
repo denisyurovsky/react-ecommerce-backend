@@ -11,7 +11,7 @@ module.exports = (req, res) => {
       return res.status(400).json(`Wrong cart  format`);
     }
 
-    user = data.users.find(user => user.id == userId);
+    user = data.users.find((user) => user.id == userId);
 
     if (!user) {
       return res.status(400).json(`No user with id ${userId}`);
@@ -22,4 +22,4 @@ module.exports = (req, res) => {
   } catch (e) {
     res.status(500).json({ message: `${e.message}` });
   }
-}
+};

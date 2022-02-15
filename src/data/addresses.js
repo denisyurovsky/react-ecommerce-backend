@@ -6,7 +6,7 @@ const addresses = [
     surname: 'Sidorov',
     country: {
       id: 'RU',
-      name: 'Russian Federation'
+      name: 'Russian Federation',
     },
     city: 'Saint Petersburg',
     street: 'Pulkovskaya',
@@ -38,7 +38,7 @@ const addresses = [
     surname: 'Sidorova',
     country: {
       id: 'RU',
-      name: 'Russian Federation'
+      name: 'Russian Federation',
     },
     city: 'Saint Petersburg',
     street: 'Pulkovskaya',
@@ -46,7 +46,7 @@ const addresses = [
     flat: '4',
     phone: '+7 (981) 1233232',
     zip: '168142',
-  }
-]
+  },
+];
 
 module.exports = { addresses };

@@ -1,4 +1,3 @@
-const _ = require('lodash');
 module.exports = (cart) => {
   if (
     !Array.isArray(cart.products) ||
@@ -7,5 +6,6 @@ module.exports = (cart) => {
   ) {
     return false;
   }
+
   return true;
 };

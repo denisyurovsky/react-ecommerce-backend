@@ -5,7 +5,7 @@ module.exports = (req, res) => {
   let product;
 
   try {
-    product = data.products.find(pr => pr.id == productId);
+    product = data.products.find((pr) => pr.id == productId);
 
     if (!product) {
       return res.status(400).json(`No product with id ${productId}`);
@@ -17,4 +17,4 @@ module.exports = (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: `${e.message}` });
   }
-}
+};

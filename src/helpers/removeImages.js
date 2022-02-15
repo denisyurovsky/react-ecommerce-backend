@@ -2,19 +2,19 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async (relativePath, leavePathFile = false) => {
-    const extensions = ['png', 'bmp', 'jpeg', 'jpg', 'gif', 'webp'];
-    const [pathWithoutExtension, newFileExtension] = relativePath.split('.');
+  const extensions = ['png', 'bmp', 'jpeg', 'jpg', 'gif', 'webp'];
+  const [pathWithoutExtension, newFileExtension] = relativePath.split('.');
 
-    extensions.forEach(extension => {
-        if (leavePathFile && newFileExtension === extension) return;
+  extensions.forEach((extension) => {
+    if (leavePathFile && newFileExtension === extension) return;
 
-        const filePath = path.resolve(`${pathWithoutExtension}.${extension}`);
+    const filePath = path.resolve(`${pathWithoutExtension}.${extension}`);
 
-        fs.stat(filePath, function (err) {
-            if (err) return;
+    fs.stat(filePath, function (err) {
+      if (err) return;
 
-            fs.unlinkSync(filePath);
-            console.log(`The ${filePath} was deleted.`);
-        });
-    })
-}
+      fs.unlinkSync(filePath);
+      console.log(`The ${filePath} was deleted.`);
+    });
+  });
+};

@@ -40,7 +40,7 @@ const users = [
     password: '$2a$10$wHl53GUuzpG/I2QeHjtcA.OtVouHC18cENehCcEiLPUZNbOG4uSuq',
     role: USER_ROLE.CONSUMER,
     addresses: [],
-  }
+  },
 ];
 
 users.forEach((user, i) => {
@@ -53,7 +53,7 @@ users.forEach((user, i) => {
   user.avatar = '';
   if (user.role === USER_ROLE.CONSUMER || user.role === USER_ROLE.ADMIN) {
     user.wishlist = [];
-  };
+  }
 });
 
 module.exports = { users };
