@@ -30,21 +30,14 @@ const rules = auth.rewriter({
   '/addresses*': '/660/addresses$1',
 });
 
-server.use(
-  middlewares,
-  jsonServer.bodyParser,
-  jsonServer.rewriter({
-    '/products/:id/update': '/products/:id',
-  }),
-  rules,
-  auth
-);
+server.use(middlewares, jsonServer.bodyParser, rules, auth);
 
 server.patch('/products/:id', products);
 server.patch('/users/:id', users);
 server.patch('/rating', rating);
 server.put('/cart/:userId', cart);
 server.delete('/categories/:name', deleteCategoryWithConnectedProducts);
+server.post('/products', products);
 
 server.use(router);
 
