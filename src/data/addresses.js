@@ -1,6 +1,8 @@
+const faker = require('faker');
+
 const addresses = [
   {
-    id: 1,
+    id: 0,
     title: 'Mr.',
     name: 'Alexander',
     surname: 'Sidorov',
@@ -16,7 +18,7 @@ const addresses = [
     zip: '168142',
   },
   {
-    id: 2,
+    id: 1,
     title: 'Mr.',
     name: 'Ivan',
     surname: 'Ivanov',
@@ -32,7 +34,7 @@ const addresses = [
     zip: '168142',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Mrs.',
     name: 'Alexandra',
     surname: 'Sidorova',
@@ -48,5 +50,12 @@ const addresses = [
     zip: '168142',
   },
 ];
+
+addresses.forEach((address) => {
+  const createdAt = faker.date.past();
+
+  address.createdAt = createdAt;
+  address.updatedAt = faker.date.between(createdAt, new Date());
+});
 
 module.exports = { addresses };

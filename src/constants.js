@@ -44,6 +44,14 @@ const orderStatus = {
   CANCELLED: 4,
 };
 
+const REQUEST_METHOD = {
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  GET: 'GET',
+  DELETE: 'DELETE',
+};
+
 module.exports = {
   PORT,
   ORIGIN_URL,
@@ -53,4 +61,5 @@ module.exports = {
   USER_ROLE,
   TEST_IMAGE_URLS,
   orderStatus,
+  REQUEST_METHOD,
 };

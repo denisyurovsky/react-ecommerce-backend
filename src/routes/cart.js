@@ -2,7 +2,7 @@ const data = require('../data/data');
 const isCartValid = require('../validators/checkCartValidity');
 
 module.exports = (req, res) => {
-  const { cart } = req.body;
+  const { cart, updatedAt } = req.body;
   const { userId } = req.params;
   let user;
 
@@ -18,6 +18,7 @@ module.exports = (req, res) => {
     }
 
     user.cart = cart;
+    user.updatedAt = updatedAt;
     res.json({ id: userId, cart: cart });
   } catch (e) {
     res.status(500).json({ message: `${e.message}` });

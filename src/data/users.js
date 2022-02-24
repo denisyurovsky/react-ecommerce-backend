@@ -9,7 +9,7 @@ const users = [
     email: 'admin@born2die.com',
     password: '$2a$10$P2R8y6j/oFchTHiitujMl.7nA.laPVUHOVULLf/byZ6CvObHuIYxu',
     role: USER_ROLE.ADMIN,
-    addresses: [1, 3],
+    addresses: [0, 2],
   },
   {
     email: 'seller1@gmail.com',
@@ -44,6 +44,8 @@ const users = [
 ];
 
 users.forEach((user, i) => {
+  const createdAt = faker.date.past();
+
   user.id = i;
   user.firstName = faker.name.firstName();
   user.lastName = faker.name.lastName();
@@ -54,6 +56,8 @@ users.forEach((user, i) => {
   if (user.role === USER_ROLE.CONSUMER || user.role === USER_ROLE.ADMIN) {
     user.wishlist = [];
   }
+  user.createdAt = faker.date.past();
+  user.updatedAt = faker.date.between(createdAt, new Date());
 });
 
 module.exports = { users };

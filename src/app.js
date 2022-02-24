@@ -4,6 +4,7 @@ const auth = require('json-server-auth');
 const { PORT } = require('./constants');
 const data = require('./data/data');
 const render = require('./middlewares/response');
+const addDatesToRequest = require('./routes/addDatesToRequest');
 const cancelOrder = require('./routes/cancelOrder');
 const cart = require('./routes/cart');
 const confirmOrder = require('./routes/confirmOrder');
@@ -34,7 +35,9 @@ const rules = auth.rewriter({
   '/orders*': '/600/orders$1',
 });
 
-server.use(middlewares, jsonServer.bodyParser, rules, auth);
+const services = [addDatesToRequest];
+
+server.use(middlewares, jsonServer.bodyParser, ...services, rules, auth);
 
 server.patch('/products/:id', products);
 server.patch('/users/:id', users);

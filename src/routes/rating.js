@@ -1,7 +1,7 @@
 const data = require('../data/data');
 
 module.exports = (req, res) => {
-  const { productId, rating } = req.body;
+  const { productId, rating, updatedAt } = req.body;
   let product;
 
   try {
@@ -12,6 +12,7 @@ module.exports = (req, res) => {
     }
 
     product.rating = rating;
+    product.updatedAt = updatedAt;
     res.json({ id: productId, rating });
   } catch (e) {
     console.log(e.message);
