@@ -28,6 +28,8 @@ for (let i = 0; i < NUMBER_OF_PRODUCTS; i++) {
     name: faker.commerce.productName(),
     price: price,
     discountPrice: discountPrice < price ? discountPrice : null,
+    isDiscounted: discountPrice < price,
+    actualPrice: discountPrice < price ? discountPrice : price,
     description: faker.commerce.productDescription(),
     category: faker.random.arrayElement(categories),
     rating: null,
