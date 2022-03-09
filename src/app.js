@@ -3,13 +3,14 @@ const auth = require('json-server-auth');
 
 const { PORT } = require('./constants');
 const data = require('./data/data');
+const addUserId = require('./middlewares/addUserId');
 const render = require('./middlewares/response');
 const addDatesToRequest = require('./routes/addDatesToRequest');
 const cancelOrder = require('./routes/cancelOrder');
 const cart = require('./routes/cart');
 const confirmOrder = require('./routes/confirmOrder');
 const deleteCategoryWithConnectedProducts = require('./routes/deleteCategoryWithConnectedProducts');
-const products = require('./routes/products');
+const { formatCategory, imagesConverter } = require('./routes/products');
 const rating = require('./routes/rating');
 const users = require('./routes/users');
 const server = jsonServer.create();
@@ -35,16 +36,16 @@ const rules = auth.rewriter({
   '/orders*': '/600/orders$1',
 });
 
-const services = [addDatesToRequest];
+const services = [addDatesToRequest, addUserId];
 
 server.use(middlewares, jsonServer.bodyParser, ...services, rules, auth);
 
-server.patch('/products/:id', products);
+server.patch('/products/:id', formatCategory, imagesConverter);
+server.post('/products', formatCategory, imagesConverter);
 server.patch('/users/:id', users);
 server.patch('/rating', rating);
 server.put('/cart/:userId', cart);
 server.delete('/categories/:name', deleteCategoryWithConnectedProducts);
-server.post('/products', products);
 server.post('/cancel-order', cancelOrder);
 server.post('/confirm-order', confirmOrder);
 
