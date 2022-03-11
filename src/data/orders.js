@@ -59,8 +59,8 @@ const orders = [
       'Mr. Mister Name, Russian Federation, Saint Petersburg, Builders street, 12/2',
     deliveryPrice: 30,
     totalPrice: 714,
-    createdAt: '2021-01-19T08:46:13.911Z',
-    deliveredAt: '2021-11-29T22:24:39.800Z',
+    createdAt: '2020-01-19T08:46:13.911Z',
+    deliveredAt: '2020-11-29T22:24:39.800Z',
   },
   {
     userId: 0,
@@ -82,8 +82,8 @@ const orders = [
       'Mr. Mister Name, Russian Federation, Saint Petersburg, Builders street, 12/2',
     deliveryPrice: 10,
     totalPrice: 539,
-    createdAt: '2021-03-19T08:46:13.911Z',
-    deliveredAt: '2021-07-29T22:24:39.800Z',
+    createdAt: '2019-03-19T08:46:13.911Z',
+    deliveredAt: '2019-07-29T22:24:39.800Z',
   },
   {
     userId: 0,
@@ -156,8 +156,8 @@ const orders = [
       'Mr. Mister Name, Russian Federation, Saint Petersburg, Builders street, 12/2',
     deliveryPrice: 11,
     totalPrice: 111,
-    createdAt: '2021-04-19T08:46:13.911Z',
-    deliveredAt: '2021-10-29T22:24:39.800Z',
+    createdAt: '2020-04-19T08:46:13.911Z',
+    deliveredAt: '2020-10-29T22:24:39.800Z',
   },
   {
     userId: 5,
@@ -179,8 +179,8 @@ const orders = [
       'Mr. Mister Name, Russian Federation, Saint Petersburg, Builders street, 12/2',
     deliveryPrice: 10,
     totalPrice: 310,
-    createdAt: '2021-04-19T08:46:13.911Z',
-    deliveredAt: '2021-10-29T22:24:39.800Z',
+    createdAt: '2018-04-19T08:46:13.911Z',
+    deliveredAt: '2018-10-29T22:24:39.800Z',
   },
   {
     id: 7,
@@ -281,8 +281,8 @@ const orders = [
       'Mr. Mister Name, Russian Federation, Saint Petersburg, Builders street, 12/2',
     deliveryPrice: 10,
     totalPrice: 3010,
-    createdAt: '2021-02-19T08:46:13.911Z',
-    deliveredAt: '2021-02-29T22:24:39.800Z',
+    createdAt: '2010-02-19T08:46:13.911Z',
+    deliveredAt: '2010-02-29T22:24:39.800Z',
   },
 ];
 
