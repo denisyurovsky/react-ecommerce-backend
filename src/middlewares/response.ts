@@ -1,4 +1,5 @@
 import type { Request, Response } from 'express';
+import { cloneDeep } from 'lodash';
 
 import checkCurrentUser from '../helpers/checkCurrentUser';
 import getBaseUrl from '../helpers/getBaseUrl';
@@ -24,7 +25,7 @@ const modifyMultipleUsers = <T extends ResponseBody>(body: T[], req: Request): v
 };
 
 export default (req: Request, res: Response): void => {
-  const body = res.locals.data;
+  const body = cloneDeep(res.locals.data);
   const baseUrl = getBaseUrl(req.url);
 
   switch (baseUrl) {
