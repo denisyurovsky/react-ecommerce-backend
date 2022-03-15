@@ -6,26 +6,28 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js",".jsx", ".ts", ".tsx"]
+        "extensions": [".ts"]
       }
     }
   },
-  "plugins": ["import"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
     "plugin:import/recommended",
-    "plugin:node/recommended-script"
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020
   },
   "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/ban-ts-comment": "off",
     "class-methods-use-this": "off",
     "no-mixed-spaces-and-tabs": "off",
-    "no-unused-vars": [
-      "warn",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
-    ],
+    "import/no-named-as-default": 0,
     "no-param-reassign": "error",
     "camelcase": "error",
     "no-duplicate-imports": "error",
@@ -40,11 +42,17 @@
         "next": ["const", "let", "var"]
       }
     ],
-    "node/no-unpublished-require": "off",
     "import/prefer-default-export": "off",
     "import/order": [
       "warn",
       {
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
         "groups": [
           "builtin",
           "external",

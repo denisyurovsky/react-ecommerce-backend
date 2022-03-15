@@ -3,6 +3,7 @@ image: node:16.13.0
 stages:
   - download_dependencies
   - test
+  - build
 
 variables:
   BUILD_VERSION: ${CI_PIPELINE_ID}
@@ -30,3 +31,14 @@ lint:
       - node_modules/
   script:
     - npm run lint
+
+build:
+  stage: build
+  needs: ["download dependencies"]
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run build

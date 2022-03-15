@@ -70815,14 +70815,7 @@
   },
   {
     "id": "KY",
-    "cities": [
-      "West Bay",
-      "North Side",
-      "George Town",
-      "East End",
-      "Bodden Town",
-      "Little Cayman"
-    ]
+    "cities": ["West Bay", "North Side", "George Town", "East End", "Bodden Town", "Little Cayman"]
   },
   {
     "id": "KZ",
@@ -72076,14 +72069,7 @@
   },
   {
     "id": "MC",
-    "cities": [
-      "Monte-Carlo",
-      "Monaco",
-      "La Condamine",
-      "Fontvieille",
-      "Saint-Roman",
-      "Moneghetti"
-    ]
+    "cities": ["Monte-Carlo", "Monaco", "La Condamine", "Fontvieille", "Saint-Roman", "Moneghetti"]
   },
   {
     "id": "MD",
@@ -103495,16 +103481,7 @@
   },
   {
     "id": "SB",
-    "cities": [
-      "Tulagi",
-      "Honiara",
-      "Gizo",
-      "Buala",
-      "Auki",
-      "Lata",
-      "Kirakira",
-      "Taro"
-    ]
+    "cities": ["Tulagi", "Honiara", "Gizo", "Buala", "Auki", "Lata", "Kirakira", "Taro"]
   },
   {
     "id": "SC",
@@ -105293,12 +105270,7 @@
   },
   {
     "id": "SX",
-    "cities": [
-      "Philipsburg",
-      "Lower Prince’s Quarter",
-      "Cul de Sac",
-      "Koolbaai"
-    ]
+    "cities": ["Philipsburg", "Lower Prince’s Quarter", "Cul de Sac", "Koolbaai"]
   },
   {
     "id": "SY",
@@ -106985,15 +106957,7 @@
   },
   {
     "id": "TO",
-    "cities": [
-      "Vaini",
-      "Pangai",
-      "‘Ohonua",
-      "Nuku‘alofa",
-      "Neiafu",
-      "Hihifo",
-      "Haveluloto"
-    ]
+    "cities": ["Vaini", "Pangai", "‘Ohonua", "Nuku‘alofa", "Neiafu", "Hihifo", "Haveluloto"]
   },
   {
     "id": "TR",
