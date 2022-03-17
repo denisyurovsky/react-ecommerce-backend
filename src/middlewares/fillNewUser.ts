@@ -10,7 +10,6 @@ const fillMandatoryKeys = (body: RegistredUser): RegistredUserWithoutId => ({
   gender: Gender.Unknown,
   dateOfBirth: null,
   addresses: [],
-  wishlist: [],
   ...body,
 });
 

@@ -1,12 +1,14 @@
 import { Role, Gender } from '../enums';
 
 import { Cart } from './cart.model';
+import { Wishlist } from './wishlist.model';
 
 export interface DraftUser {
   email: string;
   password: string;
   role: Role;
   addresses: number[];
+  wishlists?: Wishlist[];
 }
 
 export interface RegistredUser {
@@ -26,7 +28,7 @@ export interface RegistredUserWithoutId extends RegistredUser {
   dateOfBirth: Date | null;
   addresses: number[] | [];
   cart?: Cart;
-  wishlist?: number[];
+  wishlists?: Wishlist[];
 }
 
 export interface User extends RegistredUserWithoutId {

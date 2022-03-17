@@ -3,6 +3,8 @@ import faker from '@faker-js/faker';
 import { Gender, Role } from '../ts/enums';
 import type { User, DraftUser } from '../ts/models/user.model';
 
+import { defaultWishlists, demoWishlists } from './wishlists';
+
 faker.seed(1);
 
 const draftUsers: DraftUser[] = [
@@ -35,19 +37,20 @@ const draftUsers: DraftUser[] = [
     password: '$2a$10$ckfg.zH5LAH5kem5pDfryufvtPwKwhgf7B.FvKo8mpORpKwJyOUMy',
     role: Role.Consumer,
     addresses: [],
+    wishlists: demoWishlists,
   },
   {
     email: 'consumer2@gmail.com',
     password: '$2a$10$wHl53GUuzpG/I2QeHjtcA.OtVouHC18cENehCcEiLPUZNbOG4uSuq',
     role: Role.Consumer,
     addresses: [],
+    wishlists: defaultWishlists,
   },
 ];
 
 const users: User[] = draftUsers.map((user, i) => {
   const createdAt = faker.date.past();
   const currentDate = new Date();
-  const isWish = user.role === Role.Consumer || user.role === Role.Admin;
 
   return {
     ...user,
@@ -58,7 +61,6 @@ const users: User[] = draftUsers.map((user, i) => {
     dateOfBirth: faker.date.between('1970-01-01', '2000-01-01'),
     phoneNumber: '',
     avatar: '',
-    wishlist: isWish ? [] : undefined,
     createdAt: faker.date.past(),
     updatedAt: faker.date.between(createdAt.toDateString(), currentDate.toDateString()),
   };
