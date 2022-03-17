@@ -40,7 +40,7 @@ const draftUsers: DraftUser[] = [
     email: 'consumer1@gmail.com',
     password: '$2a$10$ckfg.zH5LAH5kem5pDfryufvtPwKwhgf7B.FvKo8mpORpKwJyOUMy',
     role: Role.Consumer,
-    addresses: [3],
+    addresses: [1, 3],
     wishlists: demoWishlists,
     spentCash: 120000,
   },
