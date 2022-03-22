@@ -3,7 +3,7 @@ import { writeFileSync } from 'fs';
 import type { Request, Response, NextFunction } from 'express';
 import _ from 'lodash';
 
-import { ORIGIN_URL } from '../constants';
+import { ORIGIN_URL } from '../constants/constants';
 import removeImages from '../helpers/removeImages';
 
 export default (req: Request, res: Response, next: NextFunction): void => {

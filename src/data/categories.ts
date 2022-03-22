@@ -1,6 +1,6 @@
 import faker from '@faker-js/faker';
 
-import { NUMBER_OF_CATEGORIES } from '../constants';
+import { NUMBER_OF_CATEGORIES } from '../constants/constants';
 import type { Category } from '../ts/models/category.model';
 
 faker.seed(1);

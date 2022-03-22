@@ -3,7 +3,7 @@ import { join, resolve } from 'path';
 
 import { uniqueId } from 'lodash';
 
-import { ORIGIN_URL } from '../constants';
+import { ORIGIN_URL } from '../constants/constants';
 
 export default function uploadImages(base64Col: string[], pathname: string): string[] {
   const imageUrls: string[] = [];

@@ -6,6 +6,7 @@ import cities from './cities.json';
 import countries from './countries.json';
 import feedbacks from './feedbacks';
 import orders from './orders';
+import paymentCards from './paymentCards';
 import products from './products';
 import users from './users';
 
@@ -26,4 +27,5 @@ export default {
   countries,
   cities,
   orders,
+  'payment-cards': paymentCards,
 };

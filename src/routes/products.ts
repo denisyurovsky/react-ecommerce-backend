@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 
-import { ORIGIN_URL } from '../constants';
+import { ORIGIN_URL } from '../constants/constants';
 import categories from '../data/categories';
 import products from '../data/products';
 import removeImages from '../helpers/removeImages';

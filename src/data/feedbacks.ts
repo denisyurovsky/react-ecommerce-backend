@@ -1,7 +1,7 @@
 import faker from '@faker-js/faker';
 import { filter } from 'lodash';
 
-import { NUMBER_OF_FEEDBACKS } from '../constants';
+import { NUMBER_OF_FEEDBACKS } from '../constants/constants';
 import { Role } from '../ts/enums';
 import type { Feedback } from '../ts/models/feedbacks.model';
 

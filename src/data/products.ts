@@ -1,7 +1,7 @@
 import faker from '@faker-js/faker';
 import { filter } from 'lodash';
 
-import { NUMBER_OF_PRODUCTS, TEST_IMAGE_URLS } from '../constants';
+import { NUMBER_OF_PRODUCTS, TEST_IMAGE_URLS } from '../constants/constants';
 import { Role } from '../ts/enums';
 import { Product } from '../ts/models/product.model';
 

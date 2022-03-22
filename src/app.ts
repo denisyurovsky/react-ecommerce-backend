@@ -1,7 +1,7 @@
 import * as jsonServer from 'json-server';
 import auth from 'json-server-auth';
 
-import { PORT } from './constants';
+import { PORT } from './constants/constants';
 import data from './data/data';
 import addDatesToRequest from './middlewares/addDatesToRequest';
 import addUserId from './middlewares/addUserId';
@@ -11,6 +11,7 @@ import cancelOrder from './routes/cancelOrder';
 import cart from './routes/cart';
 import { confirmOrder, handleUserId } from './routes/confirmOrder';
 import deleteCategoryWithConnectedProducts from './routes/deleteCategoryWithConnectedProducts';
+import payment from './routes/payment';
 import { imagesConverter, formatCategory } from './routes/products';
 import rating from './routes/rating';
 import users from './routes/users';
@@ -38,12 +39,15 @@ const rules = auth.rewriter({
   'confirm-order': 600,
   'cancel-order': 600,
   orders: 666,
+  payment: 666,
+  'payment-cards': 600,
 });
 
 const services = [addDatesToRequest, addUserId, fillNewUser];
 
 server.use(middlewares, jsonServer.bodyParser, ...services, rules, auth);
 
+server.post('/payment', payment);
 server.patch('/products/:id', formatCategory, imagesConverter);
 server.post('/products', formatCategory, imagesConverter);
 server.patch('/users/:id', users);

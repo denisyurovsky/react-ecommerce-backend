@@ -1,4 +1,6 @@
-export const PORT = 5000;
+import 'dotenv/config';
+
+export const PORT = process.env.PORT || 5000;
 export const ORIGIN_URL = 'http://localhost:' + PORT;
 export const NUMBER_OF_PRODUCTS = 70;
 export const NUMBER_OF_CATEGORIES = 10;
