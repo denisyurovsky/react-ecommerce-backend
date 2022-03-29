@@ -1,4 +1,4 @@
-interface CartProduct {
+export interface CartProduct {
   userId: number;
   productId: number;
   quantity: number;
@@ -7,14 +7,19 @@ interface CartProduct {
   discountPrice: number | null;
 }
 
-interface CartItem {
+export interface CartItem {
   products: CartProduct[];
   checked: boolean;
 }
 
-export interface Cart {
+export interface CartToCalculate {
   sellers: Record<string, CartItem>;
+}
+
+export interface Cart extends CartToCalculate {
   totalPrice: number;
   totalQuantity: number;
-  totalDiscount: number;
+  totalDiscountPrice: number;
+  sellersDiscount: number | null;
+  personalDiscount: number | null;
 }

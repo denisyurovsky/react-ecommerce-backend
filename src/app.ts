@@ -7,11 +7,13 @@ import addDatesToRequest from './middlewares/addDatesToRequest';
 import addUserId from './middlewares/addUserId';
 import fillNewUser from './middlewares/fillNewUser';
 import response from './middlewares/response';
+import validateUser from './middlewares/validateUser';
 import cancelOrder from './routes/cancelOrder';
-import cart from './routes/cart';
+import { setCart, deleteCart } from './routes/cart';
 import { confirmOrder, handleUserId } from './routes/confirmOrder';
 import deleteCategoryWithConnectedProducts from './routes/deleteCategoryWithConnectedProducts';
-import payment from './routes/payment';
+import { calculateGuestCart } from './routes/guestCart';
+import { payment, increaseExpenses } from './routes/payment';
 import { imagesConverter, formatCategory } from './routes/products';
 import rating from './routes/rating';
 import users from './routes/users';
@@ -31,7 +33,7 @@ const rules = auth.rewriter({
   users: 644,
   feedbacks: 644,
   rating: 664,
-  cart: 644,
+  cart: 664,
   categories: 664,
   cities: 444,
   countries: 444,
@@ -41,18 +43,20 @@ const rules = auth.rewriter({
   orders: 666,
   payment: 666,
   'payment-cards': 600,
+  'guest/cart': 666,
 });
 
 const services = [addDatesToRequest, addUserId, fillNewUser];
 
 server.use(middlewares, jsonServer.bodyParser, ...services, rules, auth);
 
-server.post('/payment', payment);
+server.post('/payment', validateUser, payment, increaseExpenses);
 server.patch('/products/:id', formatCategory, imagesConverter);
 server.post('/products', formatCategory, imagesConverter);
 server.patch('/users/:id', users);
 server.patch('/rating', rating);
-server.put('/cart/:userId', cart);
+server.route('/cart').put(validateUser, setCart).delete(validateUser, deleteCart);
+server.post('/guest/cart', calculateGuestCart);
 server.delete('/categories/:name', deleteCategoryWithConnectedProducts);
 server.post('/cancel-order', handleUserId, cancelOrder);
 server.post('/confirm-order', handleUserId, confirmOrder);

@@ -31,3 +31,18 @@ export const TEST_IMAGE_URLS: Record<string, string[]> = {
   ],
   4: ['http://localhost:5000/products/images/photo_test_51.webp'],
 };
+
+export const PERSONAL_DISCOUNT = {
+  LARGE: {
+    DISCOUNT: 0.25,
+    THRESHOLD: 100000,
+  },
+  MODERATE: {
+    DISCOUNT: 0.15,
+    THRESHOLD: 50000,
+  },
+  SMALL: {
+    DISCOUNT: 0.1,
+    THRESHOLD: 10000,
+  },
+};

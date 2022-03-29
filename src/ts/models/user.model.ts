@@ -9,6 +9,7 @@ export interface DraftUser {
   role: Role;
   addresses: number[];
   wishlists?: Wishlist[];
+  spentCash: number;
 }
 
 export interface RegistredUser {
@@ -27,6 +28,7 @@ export interface RegistredUserWithoutId extends RegistredUser {
   gender: Gender;
   dateOfBirth: Date | null;
   addresses: number[] | [];
+  spentCash: number;
   cart?: Cart;
   wishlists?: Wishlist[];
 }

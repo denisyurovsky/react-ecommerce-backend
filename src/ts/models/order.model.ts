@@ -22,6 +22,8 @@ export interface Order {
   totalPrice: number;
   totalDiscountPrice: number;
   totalQuantity: number;
+  sellersDiscount: number;
+  personalDiscount: number;
   createdAt: string;
   updatedAt: string;
   deliveredAt: string | null;

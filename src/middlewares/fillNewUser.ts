@@ -6,6 +6,7 @@ import { RegistredUser, RegistredUserWithoutId } from '../ts/models/user.model';
 
 const fillMandatoryKeys = (body: RegistredUser): RegistredUserWithoutId => ({
   avatar: null,
+  spentCash: 0,
   phoneNumber: null,
   gender: Gender.Unknown,
   dateOfBirth: null,

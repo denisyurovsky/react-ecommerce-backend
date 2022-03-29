@@ -6,15 +6,34 @@ import request, { Response, CoreOptions, RequiredUriUrl } from 'request';
 
 import bankRequisites from '../bankRequisites';
 import { OPTIONS_COMMON_VALUES, URL } from '../constants/paymentConstants';
+import data from '../data/data';
 import orders from '../data/orders';
 import paymentCards from '../data/paymentCards';
+import findUserAndOrder from '../helpers/findUserAndOrder';
 import getRetrievalReferenceNumber from '../helpers/getRetrievalReferenceNumber';
 
 interface Payload {
   [name: string]: string | object | number;
 }
 
-export default (req: express.Request, res: express.Response): void => {
+export const increaseExpenses = (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) => {
+  const { paymentAmount } = req.body;
+  const { user } = res.locals;
+
+  user.spentCash += paymentAmount;
+
+  return next();
+};
+
+export const payment = (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+): void => {
   const {
     cardNumber,
     expDate,
@@ -195,7 +214,9 @@ export default (req: express.Request, res: express.Response): void => {
           console.log(`Status pushFunds: ${pushFundsResult.statusCode}`);
           console.log(pushFundsResult.body);
 
-          return res.json(pullFundsResult.body);
+          res.json(pullFundsResult.body);
+
+          return next();
         } catch ({ statusCode, body }) {
           console.error('Transaction error: ', body.errorMessage);
 
@@ -209,7 +230,7 @@ export default (req: express.Request, res: express.Response): void => {
       console.error(`Validation error: ${statusCode}`);
       console.error('Message: ', body.errorMessage);
 
-      res.status(statusCode).json(body);
+      return res.status(statusCode).json(body);
     }
   };
 

@@ -1,4 +1,3 @@
-import { OrderStatus, Title } from '../ts/enums';
 import { Wishlist } from '../ts/models/wishlist.model';
 
 export const demoWishlists: Wishlist[] = [

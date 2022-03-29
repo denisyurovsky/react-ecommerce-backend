@@ -1,31 +1,34 @@
 import type { Request, Response } from 'express';
 
-import data from '../data/data';
+import { calculateCart } from '../controllers/cart.controller';
+import { CartToCalculate } from '../ts/models/cart.model';
 import { User } from '../ts/models/user.model';
-import isCartValid from '../validators/checkCartValidity';
 
-export default (req: Request, res: Response): void => {
-  const { cart, updatedAt } = req.body;
-  const { userId } = req.params;
-  let user: User | undefined;
+interface Body {
+  cart: CartToCalculate;
+  updatedAt: Date;
+}
+
+export const setCart = (req: Request, res: Response): void => {
+  const { cart, updatedAt }: Body = req.body;
+  const user: User = res.locals.user;
 
   try {
-    if (!isCartValid(cart)) {
-      res.status(400).json(`Wrong cart  format`);
-    }
+    const calculatedCart = calculateCart(cart, user.spentCash);
 
-    user = data.users.find((user) => user.id === Number(userId));
-
-    if (!user) {
-      res.status(400).json(`No user with id ${userId}`);
-
-      return;
-    }
-
-    user.cart = cart;
+    user.cart = calculatedCart;
     user.updatedAt = updatedAt;
-    res.json({ id: userId, cart: cart });
+
+    res.json({ id: user.id, cart: calculatedCart });
   } catch (e) {
-    res.status(500).json({ message: `${e.message}` });
+    res.status(500).json({ message: e.message });
   }
+};
+
+export const deleteCart = (req: Request, res: Response): void => {
+  const user: User = res.locals.user;
+
+  delete user.cart;
+
+  res.status(200).json();
 };
