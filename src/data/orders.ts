@@ -280,6 +280,8 @@ const orders: Order[] = [
     status: OrderStatus.Paid,
     deliveryPrice: 10,
     totalPrice: 310,
+    sellersDiscount: 0,
+    personalDiscount: 0,
     totalDiscountPrice: 310,
     totalQuantity: 2,
     createdAt: '2021-04-19T08:46:13.911Z',
