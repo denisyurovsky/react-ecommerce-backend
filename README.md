@@ -254,8 +254,8 @@ __Type__: object
 
 In order to use payment endpoint you need to configure your environment:
 * create new file in root directory: .env
-* add to this file:  
-VISA_ID=HBPHZ6SP1IR8AI7BR98S218umO4j3HCTGTuVnBniPgE2V7IHU  
-VISA_PASS=A25nlXNpr14w
-VISA_HOST_NAME = sandbox.api.visa.com
+* add to this file your visa developer data, and add it into variables 
+VISA_ID,
+VISA_PASS,
+VISA_HOST_NAME
 
